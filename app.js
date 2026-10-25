@@ -9,7 +9,7 @@ import employeesRouter from "#api/employees";
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.send("Welcome to the Fullstack Employess API.");
+  res.send("Welcome to the Fullstack Employees API.");
 });
 
 app.use("/employees", employeesRouter);
