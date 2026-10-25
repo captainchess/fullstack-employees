@@ -20,7 +20,11 @@ export async function createEmployee({ name, birthday, salary }) {
 /** @returns all employees */
 export async function getEmployees() {
   // TODO
-  
+  const sql = `
+    SELECT * FROM employees  
+  `;
+  const { rows: employees } = await db.query(sql);
+  return employees;
 }
 
 /**
