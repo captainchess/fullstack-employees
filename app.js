@@ -8,9 +8,13 @@ import employeesRouter from "#api/employees";
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Welcome to the Fullstack Employess API.");
+});
+
 app.use("/employees", employeesRouter);
 
 app.use((err, req, res, next) => {
-    console.error(err);
-    res.status(500).send("Sorry! Something went wrong");
+  console.error(err);
+  res.status(500).send("Sorry! Something went wrong");
 });
