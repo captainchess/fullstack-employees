@@ -11,7 +11,7 @@ export async function createEmployee({ name, birthday, salary }) {
   const {
     rows: [employee],
   } = await db.query(sql, [name, birthday, salary]);
-  console.log(employee);
+  
   return employee;
 }
 
@@ -33,6 +33,12 @@ export async function getEmployees() {
  */
 export async function getEmployee(id) {
   // TODO
+  const sql = `
+  SELECT * FROM employees
+  WHERE id = $1
+  `;
+  const { rows: employee } = await db.query(sql, [id]);
+  return employee;
 }
 
 /**
